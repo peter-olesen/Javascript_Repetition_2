@@ -3,7 +3,7 @@
  ****************************************************/
 
 // Opgave 1
-// Du skal i denne opgave redegøre for forksellen mellem en let, var og const.
+// Du skal i denne opgave redegøre for forskellen mellem en let, var og const.
 // Det vil sige at du skal illustrere hvad der sker når man forsøger at ændre en
 // var, en let og en const. Du skal bruge console.log til at demonstrere dette.
 //_______________________________________________________________________________
