@@ -59,45 +59,74 @@
 // });
 
 // Opgave 5
-let container = document.createElement('div');
-document.body.append(container)
+// let container = document.createElement('div');
+// document.body.append(container)
 
-let div1 = document.createElement('div');
-let div2 = document.createElement('div');
-let div3 = document.createElement('div');
-let div4 = document.createElement('div');
-container.append(div1, div2, div3, div4)
+// let div1 = document.createElement('div');
+// let div2 = document.createElement('div');
+// let div3 = document.createElement('div');
+// let div4 = document.createElement('div');
+// container.append(div1, div2, div3, div4)
 
-document.body.style.margin = "0";
+// document.body.style.margin = "0";
 
-container.style.display = "grid";
-container.style.gridTemplate = "1fr 1fr / 1fr 1fr"
-container.style.width = "100vw";
-container.style.height = "100vh";
+// container.style.display = "grid";
+// container.style.gridTemplate = "1fr 1fr / 1fr 1fr"
+// container.style.width = "100vw";
+// container.style.height = "100vh";
 
-div1.style.border = "solid 1px black"
-div2.style.border = "solid 1px black"
-div3.style.border = "solid 1px black"
-div4.style.border = "solid 1px black"
+// div1.style.border = "solid 1px black"
+// div2.style.border = "solid 1px black"
+// div3.style.border = "solid 1px black"
+// div4.style.border = "solid 1px black"
 
-function getRandomRGB() {
-    const r = Math.floor(Math.random() * 256);
-    const g = Math.floor(Math.random() * 256);
-    const b = Math.floor(Math.random() * 256);
-    return `rgb(${r}, ${g}, ${b})`;
-}
+// function getRandomRGB() {
+//     const r = Math.floor(Math.random() * 256);
+//     const g = Math.floor(Math.random() * 256);
+//     const b = Math.floor(Math.random() * 256);
+//     return `rgb(${r}, ${g}, ${b})`;
+// }
 
-function addColor(div) {
-    div.addEventListener('mouseenter', () => {
-        div.style.backgroundColor = getRandomRGB();
-    });
-}
+// function addColor(div) {
+//     div.addEventListener('mouseenter', () => {
+//         div.style.backgroundColor = getRandomRGB();
+//     });
+// }
 
-addColor(div1);
-addColor(div2);
-addColor(div3);
-addColor(div4);
+// addColor(div1);
+// addColor(div2);
+// addColor(div3);
+// addColor(div4);
 
 // Opgave 6
-// let inputElm = document.createElement('input')
-// document.body.append(inputElm);
+let inputElm = document.createElement('input')
+document.body.append(inputElm);
+
+let msgElm = document.createElement('p')
+document.body.append(msgElm);
+
+function validateInput(value) {
+    const regex = /^(?=.*[A-Z])(?=.*[^A-Za-z]).+$/;
+
+    if (value.length >= 20) {
+        msgElm.textContent = 'String is too long. Max twenty characters.';
+        msgElm.style.color = 'red';
+        return false;
+    }
+
+    if (!regex.test(value)) {
+        msgElm.textContent = 'Must include at least one uppercase letter and one non-letter character.';
+        msgElm.style.color = 'red';
+        return false;
+    }
+
+    msgElm.textContent = 'Input is valid.';
+    msgElm.style.color = 'green';
+    return true;
+
+}
+
+inputElm.addEventListener('input', () => {
+    let value = inputElm.value;
+    validateInput(value);
+});
