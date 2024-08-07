@@ -1,0 +1,19 @@
+#productsContainer {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+}
+
+.productCard {
+    display: flex;
+    border: solid 1px black;
+    /* padding: 1rem; */
+}
+
+.innerCard {
+    padding-left: 1rem;
+}
+
+h2 {
+    margin: 0;
+}
