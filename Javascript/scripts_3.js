@@ -4,6 +4,8 @@ let productSort = document.createElement('select')
 document.body.appendChild(productSort)
 
 const sortOptions = [
+    {value: '', text: 'Sort by..'},
+    {value: 'title', text: 'Alphabetical'},
     {value: 'price', text: 'Price'},
     {value: 'popularity', text: 'Popularity'},
     {value: 'quantity', text: 'Quantity'}
@@ -50,6 +52,9 @@ productSort.addEventListener('change', (e) => {
     const sortBy = e.target.value;
 
     const sortedProducts = [...storeProducts].sort((a, b) => {
+        if (sortBy === 'title') {
+            return a.title.localeCompare(b.title);
+        }
         if (a[sortBy] < b[sortBy]) return -1;
         if (a[sortBy] > b[sortBy]) return 1;
         return 0;
