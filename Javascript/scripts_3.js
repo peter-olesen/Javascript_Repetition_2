@@ -39,7 +39,7 @@ function displayProducts(storeProducts) {
         productContainer.appendChild(productCard)
 
         productCard.addEventListener('click', () => {
-            alert('Added ' + '"' + product.title + '"' + ' to cart')
+            alert('Added "' + product.title + '" to cart')
         });
     });
 }
